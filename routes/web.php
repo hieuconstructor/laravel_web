@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::resource('courses', 'CourseController');
+Route::resource('courses', 'CourseController')->except([
+    'show',
+]);
 
 //Route::group(['prefix'=>'courses', 'as'=> 'courses.'], function (){
 //    Route::get('',[CourseController::class, 'index'])->name('index');

@@ -61,20 +61,30 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-//        Course::where('id', $course -> id) -> update(
-//            $request->except([
-//                '_token',
-//                '_method',
-//            ])
-//        );
-        $course -> update(
-            $request->except([
-                '_token',
-                '_method',
-            ])
-        );
+
+        //-----------------------Cách 1: Query----------------------//
+
+        //        Course::where('id', $course -> id) -> update(
+        //            $request->except([
+        //                '_token',
+        //                '_method',
+        //            ])
+        //        );
+
+        //-----------------------------Cách 2------------------------//
+
+        //        $course -> update(
+        //            $request->except([
+        //                '_token',
+        //                '_method',
+        //            ])
+        //        );
 
         //$course->update()
+        //-----------------------------Cách 3: Hướng đối tượng------------------------//
+
+        $course->fill($request->except(_token));
+        $course->save();
 
         return redirect()->route('courses.index');
     }
