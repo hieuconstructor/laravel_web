@@ -30,7 +30,7 @@ class CourseController extends Controller
         $object->fill($request->except('_token'));
         $object->save();
 
-        return redirect()->route('course.index');
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -74,7 +74,9 @@ class CourseController extends Controller
             ])
         );
 
-        return redirect()->route('course.index');
+        //$course->update()
+
+        return redirect()->route('courses.index');
     }
 
 
@@ -82,7 +84,7 @@ class CourseController extends Controller
     {
         $course->delete();
 
-        return redirect()->route('course.index');
+        return redirect()->route('courses.index');
         //Course::destroy($course->id);
         //Course::where('id', $course->id) -> delete();
     }
