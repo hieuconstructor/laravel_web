@@ -1,4 +1,4 @@
-<form action=" {{ route('course.update', $each) }} " method="post">
+<form action=" {{ route('courses.update', $each) }} " method="post">
     @csrf
     @method('PUT')
     Name

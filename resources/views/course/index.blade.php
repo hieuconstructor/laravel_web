@@ -1,4 +1,4 @@
-<a href=" {{ route('course.create') }}">
+<a href=" {{ route('courses.create') }}">
     Thêm
 </a>
 <table border="1" width="100%">
@@ -16,12 +16,12 @@
             <td>{{ $each->name }}</td>
             <td>{{ $each->date_created_at}}</td>
             <td>
-                <a href=" {{ route('course.edit', $each) }}">
+                <a href=" {{ route('courses.edit', $each) }}">
                     <button>Edit</button>
                 </a>
             </td>
             <td>
-                <form action="{{ route('course.destroy', ['course'=> $each->id]) }}" method="post">
+                <form action="{{ route('courses.destroy', ['course'=> $each->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button> Delete</button>
